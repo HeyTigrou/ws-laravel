@@ -15,10 +15,13 @@ use App\http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-});
-
-Route::get('/',[HomeController::class, 'index'])->name('home-index');
+Route::get('/',[HomeController::class, 'index'])->name('index');
 
 Route::get('/lol', [PostController::class, 'index']);
+
+
+
+// Vid 4
+Route::get('/accueil', [PostController::class, 'index']);
+Route::get('/posts/{id}', [PostController::class, 'show'])->whereNumber('id');
+Route::get('/contact', [PostController::class, 'contact']);

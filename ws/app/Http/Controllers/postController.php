@@ -9,6 +9,24 @@ class PostController extends Controller
             'UwU',
             'OwO'
         ];
-        return view('home.lol',compact('lol'));
+        return view('lol',compact('lol'));
+    }
+
+    public function show($id)
+    {
+        $posts = [
+            1 => 'Mon titre no 1',
+            2 => 'Mon titre no 2'
+        ];
+
+        $post = $posts[$id] ?? 'error no title';
+
+        return view('article', [
+            'post' => $post
+        ]);
+    }
+
+    public function contact(){
+        return view('contact');
     }
 }
