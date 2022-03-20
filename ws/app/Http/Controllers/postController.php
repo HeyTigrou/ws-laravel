@@ -5,6 +5,10 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('home.lol');
+        $lol = [
+            'UwU',
+            'OwO'
+        ];
+        return view('home.lol',compact('lol'));
     }
 }

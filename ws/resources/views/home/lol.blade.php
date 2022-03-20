@@ -7,6 +7,9 @@
     <title>Notre première page Laravel</title>
 </head>
 <body>
-    <p>LooooooooooooooooooooooooooooooooooooooL</p>
+    <h1>LooooooooooooooooooooooooooooooooooooooL</h1>
+    @foreach($lol as $lol)
+        <h2>{{$lol}}</h2>
+    @endforeach
 </body>
 </html>

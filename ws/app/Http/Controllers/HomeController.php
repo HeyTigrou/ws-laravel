@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index(){
         //Using user model
-        $user = User::findOrFail(1);
+        $user = User::findOrFail(2);
 
 
         $message="Hello there!";
