@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\http\Controllers\PostController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,6 @@ Route::get('/accueil', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show'])->whereNumber('id');
 Route::get('/contact', [PostController::class, 'contact']);
 Route::get('/article/{id}',[PostController::class, 'show']);
+
+// POC :
+Route::resource('countries', CountryController::class);
