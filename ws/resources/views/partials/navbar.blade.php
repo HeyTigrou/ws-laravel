@@ -6,6 +6,6 @@
         <a href="/contact">Page de contact</a>
     </li>
     <li>
-        <a href="#">Page d'article</a>
+        <a href="/article/<?php echo rand(1,2)?>">Page d'article</a>
     </li>
 </ul>
