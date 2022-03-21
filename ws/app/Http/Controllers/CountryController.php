@@ -88,7 +88,7 @@ class CountryController extends Controller
 
         $country->update($request->all());
 
-        return redirect()->route('countries.index')->with('success','Pays mit à jour corrêctement');
+        return redirect()->route('countries.index')->with('success','Pays mit à jour correctement');
     }
 
     /**

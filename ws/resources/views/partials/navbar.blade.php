@@ -8,4 +8,7 @@
     <li>
         <a href="/article/<?php echo rand(1,2)?>">Page d'article</a>
     </li>
+    <li>
+        <a href="/countries">POC CRUD Country</a>
+    </li>
 </ul>

@@ -24,8 +24,9 @@ $number = substr($parse,-1); // Contient l'id du pays
 @endif
 
 
-<form action="{{ route('countries.update', $country->id) }}" method="PUT">
+<form action="{{ route('countries.update', $country->id) }}" method="POST">
 @csrf
+@method('PUT')
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
