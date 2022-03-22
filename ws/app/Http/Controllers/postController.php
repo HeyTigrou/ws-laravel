@@ -66,6 +66,46 @@ class PostController extends Controller
 
     public function updatePost($id)
     {
+        $posts = Post::where('id', '=', "$id")->firstOrFail();
 
+        return view('edit', [
+            'posts' => $posts
+        ]);
+    }
+
+    public function validateUpdatePost(Request $request)
+    {
+        $url = $_SERVER['REQUEST_URI']; 
+        $number = strrchr($url, '/');
+        $id = substr($number, 1);
+
+        $post = Post::find($id);
+
+        $post->update([
+            'title' => $request->title,
+            'content' => $request->content
+        ]);
+
+        $posts = Post::where('id', '=', "$id")->firstOrFail();
+        
+        return view('edit', [
+            'posts' => $posts
+        ]);
+    }
+
+    public function destroyPost($id)
+    {
+        $url = $_SERVER['REQUEST_URI']; 
+        $number = strrchr($url, '/');
+        $id = substr($number, 1);
+
+        $post = Post::find($id);
+        $post->delete();
+
+        $lols = Post::OrderBy('title')->get();
+
+        return view('lol',[
+            'posts' => $lols
+        ]);
     }
 }
