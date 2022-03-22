@@ -3,6 +3,9 @@
         <a href="{{route('index')}}">Accueil</a>
     </li>
     <li>
+        <a href="{{route('posts.create')}}">Créer un nouveau post</a>
+    </li>
+    <li>
         <a href="/contact">Page de contact</a>
     </li>
     <li>
