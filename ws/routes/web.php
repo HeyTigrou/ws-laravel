@@ -22,6 +22,7 @@ Route::get('/lol', [PostController::class, 'index'])->name('MainMenu');
 
 // Vid 4
 Route::get('/accueil', [PostController::class, 'index']);
+
 // Vid 8 
 Route::get('/posts/create', [PostController::class, 'createPost'])->name('posts.create');
 Route::post('/posts/create', [PostController::class, 'storePost'])->name('posts.store');
@@ -29,6 +30,7 @@ Route::get('/posts/update/{id}', [PostController::class, 'updatePost'])->name('p
 Route::post('/posts/update/{id}', [PostController::class, 'validateUpdatePost'])->name('posts.validateUpdate');
 Route::post('/posts/destroy/{id}', [PostController::class, 'destroyPost'])->name('posts.destroy');
 // Vid 8 
+
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/contact', [PostController::class, 'contact']);
 Route::get('/article/{id}',[PostController::class, 'show']);
