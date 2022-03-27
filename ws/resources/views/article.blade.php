@@ -4,7 +4,8 @@
     <h2>{{$posts->content}}</h2>
     <span>{{$posts->image ? $posts->image->path : 'No image found'}}</span>
     <hr>
-
+    <span>Artiste de l'image : {{$posts->imageArtist->name}}</span>
+    <hr>
     @foreach($posts->comments as $comment)
     <div> {{$comment->content}} | crée le {{$comment->created_at->format('d/m/Y')}}</div>
     @endforeach
