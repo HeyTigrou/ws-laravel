@@ -9,6 +9,12 @@
     <div> {{$comment->content}} | crée le {{$comment->created_at->format('d/m/Y')}}</div>
     @endforeach
 
+    <hr>
+
+    @foreach($posts->tags as $tag)
+    <spam>{{$tag->name}}</spam>
+    @endforeach
+
     <div class="pull-right">
         <a class="btn btn-primary" href="{{ route('posts.update', ['id' => $posts->id ]) }}">Edit</a>
     </div>
