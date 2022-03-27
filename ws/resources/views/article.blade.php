@@ -16,6 +16,14 @@
     <spam>{{$tag->name}}</spam>
     @endforeach
 
+    <hr>
+    <span> Commentaire le plus récent : {{$posts->latestComment->content}}</span>
+
+    <hr>
+
+    <span> Commentaire le plus ancien : {{$posts->oldestComment->content}}</span>
+
+    <hr>
     <div class="pull-right">
         <a class="btn btn-primary" href="{{ route('posts.update', ['id' => $posts->id ]) }}">Edit</a>
     </div>
