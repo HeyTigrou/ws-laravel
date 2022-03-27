@@ -50,6 +50,12 @@ class PostController extends Controller
 
     public function storePost(Request $request)
     {
+        //dd($request->fullUrlWithQuery(['name' => '12345']));
+        //dd($request->boolean('premium'), $request->boolean('star'));
+        //dd($request->except(['_token']));
+        
+        //dd($request->file->store('images'));
+
         // $post = new Post();
         // $post -> title = $request->title;
         // $post -> content = $request->content;
