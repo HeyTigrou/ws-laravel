@@ -2,6 +2,13 @@
 
 @section('content') 
     <h1>Créer un nouveau post</h1>
+
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">{{ $error}}</div>
+        @endforeach
+    @endif
+
     <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
         @csrf
         <input type="text" name="title">

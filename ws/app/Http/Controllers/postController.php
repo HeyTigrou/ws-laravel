@@ -61,6 +61,11 @@ class PostController extends Controller
         // $post -> content = $request->content;
         // $post -> save();
 
+        $request->validate([
+            'title' => ['required','min:5','max:255','unique:posts'],
+            'content' => ['required']
+        ]);
+
         Post::create([
             'title' => $request->title,
             'content' => $request->content
