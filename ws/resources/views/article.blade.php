@@ -2,7 +2,7 @@
 
 @section('content') 
     <h2>{{$posts->content}}</h2>
-
+    <span>{{$posts->image ? $posts->image->path : 'No image found'}}</span>
     <hr>
 
     @foreach($posts->comments as $comment)
