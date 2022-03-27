@@ -2,6 +2,13 @@
 
 @section('content') 
     <h2>{{$posts->content}}</h2>
+
+    <hr>
+
+    @foreach($posts->comments as $comment)
+    <div> {{$comment->content}} | crée le {{$comment->created_at->format('d/m/Y')}}</div>
+    @endforeach
+
     <div class="pull-right">
         <a class="btn btn-primary" href="{{ route('posts.update', ['id' => $posts->id ]) }}">Edit</a>
     </div>

@@ -4,7 +4,7 @@
 <form method="POST" action="{{ route('posts.validateUpdate',['id' => $posts->id ]) }}">
         @csrf
         <input type="text" name="title" placeholder="{{$posts->title}}" value="{{$posts->title}}">
-        <textarea name="content" cols="30" rows="10" placeholder="{{$posts->content}}">{{$posts->title}}</textarea>
+        <textarea name="content" cols="30" rows="10" placeholder="{{$posts->content}}">{{$posts->content}}</textarea>
         <button type="submit">Modifier</button>
     </form>
     <div class="pull-right">
