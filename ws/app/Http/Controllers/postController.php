@@ -3,6 +3,7 @@ namespace App\http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -60,6 +61,10 @@ class PostController extends Controller
         // $post -> title = $request->title;
         // $post -> content = $request->content;
         // $post -> save();
+
+        Storage::disk('local')->put('test.txt', 'contents');
+
+        dd();
 
         $request->validate([
             'title' => ['required','min:5','max:255','unique:posts'],
