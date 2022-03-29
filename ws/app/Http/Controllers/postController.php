@@ -2,6 +2,7 @@
 namespace App\http\Controllers;
 
 use App\Models\Post;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -62,19 +63,46 @@ class PostController extends Controller
         // $post -> content = $request->content;
         // $post -> save();
 
-        Storage::disk('local')->put('test.txt', 'contents');
-
-        dd();
-
         $request->validate([
             'title' => ['required','min:5','max:255','unique:posts'],
             'content' => ['required']
         ]);
 
-        Post::create([
+        // ------------------------------------------------------------------------
+
+        // $name = Storage::disk('local')->put('public', $request->file('file'));
+
+        $filename = time(). '.'.$request->file->extension();
+
+        $path = $request->file('file')->storeAs(
+            'avatars',
+            $filename,
+            'public'
+        );
+
+
+        //dd(Storage::get($name)); on récup l'image
+
+        //dd(Storage::disk('local')->exists($name)); on vérifie l'existance de l'image
+
+        // return Storage::download($name); proposer de download le fichier 
+
+        // dd(Storage::url($name)); renvoie le chemin relatif du fichier
+
+        // dd(Storage::size($name)); renvoie la taille du fichier
+
+        // dd(Storage::path($name)); renvoie le lien entier du fichier, déconseillé
+
+        $post = Post::create([
             'title' => $request->title,
             'content' => $request->content
         ]);
+
+        $image = new Image();
+        $image->path = $path;
+
+        $post->image()->save($image);
+
         echo "<script type='text/javascript'>alert('Article crée');</script>";
         return view ('form');
         // dd($post);

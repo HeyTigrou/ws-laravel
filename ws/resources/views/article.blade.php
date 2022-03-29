@@ -2,9 +2,10 @@
 
 @section('content') 
     <h2>{{$posts->content}}</h2>
-    <span>{{$posts->image ? $posts->image->path : 'No image found'}}</span>
+    <!-- <span>{{$posts->image ? $posts->image->path : 'No image found'}}</span> -->
     <hr>
-    <span>Artiste de l'image : {{$posts->imageArtist->name}}</span>
+    <!-- <span>Artiste de l'image : {{$posts->imageArtist->name}}</span> -->
+    <img src="{{ Storage::url($post -> image -> path) }}" alt="image du post">
     <hr>
     @foreach($posts->comments as $comment)
     <div> {{$comment->content}} | crée le {{$comment->created_at->format('d/m/Y')}}</div>
