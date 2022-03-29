@@ -11,7 +11,7 @@ class PostController extends Controller
     public function index()
     {
         $lols = Post::OrderBy('title')->get();
-
+        dd($lols);
         return view('lol',[
             'posts' => $lols
         ]);
