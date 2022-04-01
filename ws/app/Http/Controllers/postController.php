@@ -72,7 +72,7 @@ class PostController extends Controller
 
         // $name = Storage::disk('local')->put('public', $request->file('file'));
 
-        $filename = time(). '.'.$request->file->extension();
+        $filename = time().'.'.$request->file->extension();
 
         $path = $request->file('file')->storeAs(
             'avatars',
